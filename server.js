@@ -11,7 +11,7 @@ const { fstat } = require('fs');
 const path = require('path');
 const {v4: uuidv4} = require('uuid');
 const { readFile, writeFile } = require('./helpers/fsUtils')
-// const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
+
 
 /* https://www.npmjs.com/package/uuid
 uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
@@ -51,19 +51,36 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     
     // Access the note data that was being sent
-    const newNote = req.body;
+    const { title, text } = req.body
 
-    // Create (persist) data
+    const newNote = {
+            title: title,
+            text: text,
+            id: uuidv4(),
+            };
+    console.log(newNote)
 
-    // Add on uuid function onto the note object to allow DELETE function (DAY 2 Activity 20)
 
-    // Access the new note from `req`
+    readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+        } else {
+          const parsedData = JSON.parse(data);
+          parsedData.push(newNote);
+          writeFile('./db/db.json', JSON.stringify(parsedData, null, 4));
+        }
+      });
+    // // Create (persist) data
+        
+    // // Add on uuid function onto the note object to allow DELETE function (DAY 2 Activity 20)
 
-    // Push it to my existing list of notes
-
-    // Write my updated notes list to the `db.json` file
+    // // Access the new note from `req`
     
-    res.json(/* note data */);
+    // // Push it to my existing list of notes
+
+    // // Write my updated notes list to the `db.json` file
+    
+    // res.json(/* note data */);
 
 });
 
