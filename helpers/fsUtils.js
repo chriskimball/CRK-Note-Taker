@@ -1,15 +1,7 @@
 const fs = require('fs');
+const util = require('util');
 
-const readFile = (filePath) =>{
-    fs.readFile(
-        filePath, // File name
-        'utf8', // Character encoding (pretty much always utf8)
-        (error, data) => { 
-          error ? console.error(error) : console.log(data) // our call back function
-        
-        }
-      );
-};
+const readFile = util.promisify(fs.readFile);
 
 const writeFile = (filePath, fileData) => {
     fs.writeFile(
@@ -25,3 +17,4 @@ module.exports = {
     readFile, 
     writeFile
 };
+
