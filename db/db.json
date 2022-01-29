@@ -1,12 +1,12 @@
 [
     {
-        "title": "Cool note 2",
-        "text": "Text",
-        "id": "4c8203e7-0307-4b0f-a9db-f69230d50807"
+        "title": "Cool Note",
+        "text": "Text of cool note",
+        "id": "d487a248-65ea-4b66-bc6e-95eb73d40d1f"
     },
     {
-        "title": "Cool note 1",
-        "text": "Cool text",
-        "id": "716bb597-bd7a-4f56-9fd6-9c3c1c285295"
+        "title": "Cool note 2",
+        "text": "Text of cool note 2",
+        "id": "5995e782-2d3d-46e3-94a7-0f0244caefb8"
     }
 ]

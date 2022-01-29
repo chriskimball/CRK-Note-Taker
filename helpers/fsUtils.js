@@ -8,7 +8,7 @@ const writeFile = (filePath, fileData) => {
         filePath, // file name
         fileData, // content to write
         (err) => 
-        err ? console.error(err) : console.log('Success!') //call back function
+        err ? console.error(err) : console.log('DB successfully updated.') //call back function
       );
 };
 
