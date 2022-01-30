@@ -1,6 +1,7 @@
-const router = require('express').Router()
+const router = require('express').Router();
 
-const notesRoutes = require('./notesRouter')
-router.use('/notes',notesRoutes)
+// Importing the modular router for /notes
+const notesRoutes = require('./notesRouter');
+router.use('/notes',notesRoutes);
 
-module.exports = router
+module.exports = router;
